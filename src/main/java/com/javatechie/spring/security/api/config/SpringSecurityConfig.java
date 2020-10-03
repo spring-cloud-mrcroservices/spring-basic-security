@@ -37,6 +37,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	// security based on ROLE
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		http.cors();
 		http.csrf().disable();
 		http.authorizeRequests().antMatchers("/rest/**").hasAnyRole("ADMIN").anyRequest().fullyAuthenticated().and()
 				.httpBasic();
